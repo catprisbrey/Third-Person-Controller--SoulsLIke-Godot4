@@ -1,7 +1,7 @@
 # Third Person Controller Template - Godot 4 Souls-Like
 Version 0.0.1
 
-![Controller Screenshot](https://github.com/pemguin005/Third-Person-Controller---Godot-Souls-like/blob/main/screenshots/HunterGodotDemo.GIF)
+![Controller Screenshot](https://github.com/pemguin005/Third-Person-Controller--SoulsLIke-Godot4/blob/main/screenshots/HunterGodotDemo.GIF)
 
 ## Features
 
