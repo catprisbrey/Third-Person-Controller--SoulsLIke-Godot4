@@ -1,22 +1,16 @@
 [gd_scene load_steps=20 format=3 uid="uid://crstna6wto6j3"]
 
-[ext_resource type="PackedScene" uid="uid://278gt12580yi" path="res://player/HunterGodot.tscn" id="1"]
+[ext_resource type="PackedScene" uid="uid://drnwjy53eh3vi" path="res://player/HunterGodot.tscn" id="1"]
 [ext_resource type="Material" uid="uid://bch8jjmrr4qnw" path="res://mat/CobleStones.material" id="2"]
 [ext_resource type="Material" uid="uid://dy7lsy567vx3j" path="res://mat/Pilars.material" id="3"]
 
-[sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_wah1s"]
-
-[sub_resource type="CameraEffects" id="CameraEffects_rgh32"]
-dof_blur_far_enabled = true
-dof_blur_far_distance = 6.35
-dof_blur_far_transition = 119.88
-override_exposure = 1.21
+[sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_lqpck"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_hulul"]
 sky_top_color = Color(0.286275, 0.25098, 0.262745, 1)
 sky_horizon_color = Color(0.864831, 0.576034, 0.336757, 1)
 sky_curve = 0.15529
-ground_bottom_color = Color(0.0941176, 0.258824, 0.4, 1)
+ground_bottom_color = Color(0.380392, 0.266667, 0.341176, 1)
 ground_horizon_color = Color(0.80076, 0.635551, 0.488784, 1)
 sun_angle_max = 39.71
 sun_curve = 0.139955
@@ -27,20 +21,35 @@ sky_material = SubResource("ProceduralSkyMaterial_hulul")
 [sub_resource type="Environment" id="Environment_jd42k"]
 background_mode = 2
 sky = SubResource("Sky_n1da0")
+ambient_light_source = 3
+ambient_light_color = Color(0.164706, 0.164706, 0.164706, 1)
+ambient_light_sky_contribution = 0.17
+ambient_light_energy = 0.0
+reflected_light_source = 2
 ssr_fade_in = 0.0549032
 ssao_intensity = 4.77
 ssil_intensity = 2.49
-sdfgi_enabled = true
-sdfgi_use_occlusion = true
+sdfgi_read_sky_light = false
 sdfgi_bounce_feedback = 0.65
 fog_enabled = true
 fog_light_color = Color(0.709804, 0.537255, 0.568627, 1)
+fog_light_energy = 0.89
 fog_sun_scatter = 1.0
 fog_density = 0.002
+fog_aerial_perspective = 0.56
+fog_height = 1.0
+fog_height_density = 0.05
 volumetric_fog_enabled = true
 volumetric_fog_density = 0.01
 volumetric_fog_anisotropy = 0.9
-volumetric_fog_length = 70.83
+volumetric_fog_length = 98.14
+
+[sub_resource type="CameraEffects" id="CameraEffects_avrxj"]
+dof_blur_far_enabled = true
+dof_blur_far_distance = 20.68
+dof_blur_far_transition = 8.62
+dof_blur_near_distance = 10.25
+dof_blur_amount = 0.02
 
 [sub_resource type="CylinderMesh" id="3"]
 material = ExtResource("3")
@@ -85,247 +94,225 @@ data = PackedVector3Array(-0.75, 0.5, 0.75, 0.75, 0.5, 0.75, -0.75, -0.5, 0.75, 
 
 [node name="World" type="Node3D"]
 
-[node name="HunterGodot" parent="." instance=ExtResource("1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.945422, 0.120462, -8.55003)
-walk_speed = 1.2
+[node name="HunterG4" parent="." instance=ExtResource("1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.08575, 0, -10.7214)
 
-[node name="Skeleton3D" parent="HunterGodot" index="1"]
-bones/0/position = Vector3(1.33925, 93.6048, -0.179708)
-bones/0/rotation = Quaternion(0.669769, -0.279577, 0.3424, 0.596665)
-bones/2/rotation = Quaternion(0.398454, 0.847567, 0.314862, 0.154038)
-bones/4/rotation = Quaternion(-0.370233, 0.163156, -0.0511193, 0.913069)
-bones/5/rotation = Quaternion(0.473737, -0.0660118, -0.0571016, 0.876331)
-bones/6/rotation = Quaternion(0.307214, 0.0130128, -0.0457156, 0.950453)
-bones/7/rotation = Quaternion(-0.658233, 0.00922571, -0.0299563, 0.752161)
-bones/8/rotation = Quaternion(0.0398667, 0.05198, -0.0364629, 0.997186)
-bones/9/rotation = Quaternion(-0.0633022, 0.0555139, -0.0308687, 0.995971)
-bones/10/rotation = Quaternion(0.097442, 0.0971802, -0.00925168, 0.990442)
-bones/14/rotation = Quaternion(-0.0560349, 0.205228, -0.0262965, 0.976755)
-bones/19/rotation = Quaternion(0.607557, 0.375172, -0.486332, 0.50359)
-bones/20/rotation = Quaternion(0.387414, -0.065633, -0.0371339, 0.918817)
-bones/21/rotation = Quaternion(0.0999225, -0.129011, 0.243279, 0.956131)
-bones/22/rotation = Quaternion(-0.0559607, 0.0687844, -0.0580866, 0.994366)
-bones/23/rotation = Quaternion(0.0910555, 0.293746, 0.290113, 0.906232)
-bones/24/rotation = Quaternion(0.0638499, -0.103653, -0.0154967, 0.992441)
-bones/25/rotation = Quaternion(0.0268715, -0.00922519, 0.000991477, 0.999596)
-bones/26/rotation = Quaternion(0.0138407, -0.00220038, 0.1158, 0.993174)
-bones/27/rotation = Quaternion(0.0462425, 0.00153605, 0.00410894, 0.998921)
-bones/28/rotation = Quaternion(0.0737683, 0.00127683, 0.00751828, 0.997246)
-bones/29/rotation = Quaternion(0.0699859, 0.0119352, 0.0299839, 0.997026)
-bones/30/rotation = Quaternion(0.117446, 0.00624375, 0.0138058, 0.992964)
-bones/31/rotation = Quaternion(0.148262, 0.00833154, 0.0133593, 0.988823)
-bones/32/rotation = Quaternion(0.17845, 0.0188679, 0.0013988, 0.983767)
-bones/33/rotation = Quaternion(0.172449, -0.00394955, 0.0178291, 0.984849)
-bones/34/rotation = Quaternion(0.200953, -0.00464069, 0.0189131, 0.979407)
-bones/35/rotation = Quaternion(0.271439, 0.0152282, 0.0312919, 0.961826)
-bones/36/rotation = Quaternion(0.158051, -0.00615489, 0.0107154, 0.987354)
-bones/37/rotation = Quaternion(0.309862, -0.0180887, 0.0201813, 0.950395)
-bones/38/rotation = Quaternion(0.616403, -0.335536, 0.42867, 0.56895)
-bones/39/rotation = Quaternion(0.440223, 0.0948073, 0.305194, 0.83909)
-bones/40/rotation = Quaternion(0.105042, 0.0462299, -0.406776, 0.90629)
-bones/41/rotation = Quaternion(0.0789073, -0.0943689, -0.165915, 0.978438)
-bones/42/rotation = Quaternion(0.0343326, -0.571612, -0.294586, 0.765049)
-bones/43/rotation = Quaternion(0.0566775, 0.108539, 0.0264929, 0.992122)
-bones/44/rotation = Quaternion(0.0943892, 0.0468211, 0.189447, 0.976222)
-bones/45/rotation = Quaternion(0.297323, -0.0961442, -0.117007, 0.94269)
-bones/46/rotation = Quaternion(0.565085, -0.0301125, -0.0298452, 0.823943)
-bones/47/rotation = Quaternion(0.515995, -0.0194863, -0.0298242, 0.855851)
-bones/48/rotation = Quaternion(0.367536, -0.0372059, -0.0945263, 0.924445)
-bones/49/rotation = Quaternion(0.560916, -0.0126829, -0.0417962, 0.82672)
-bones/50/rotation = Quaternion(0.350416, 0.000410286, -0.0292705, 0.936137)
-bones/51/rotation = Quaternion(0.475377, -0.00909776, -0.115889, 0.872069)
-bones/52/rotation = Quaternion(0.406168, -0.00235008, -0.029171, 0.91333)
-bones/53/rotation = Quaternion(0.450659, -0.00230975, -0.0276615, 0.892264)
-bones/54/rotation = Quaternion(0.398478, 0.0689279, -0.0480458, 0.913321)
-bones/55/rotation = Quaternion(0.386979, -0.00326013, -0.0234152, 0.921785)
-bones/56/rotation = Quaternion(0.216036, 0.00185067, -0.0144624, 0.976277)
-bones/57/rotation = Quaternion(-0.181551, 0.857664, 0.472895, 0.0884448)
-bones/59/rotation = Quaternion(-0.445087, -0.0399761, -0.0239866, 0.894273)
-bones/60/rotation = Quaternion(0.662612, 0.0729899, 0.182652, 0.722673)
-bones/61/rotation = Quaternion(0.282137, 0.0158951, 0.0248304, 0.958921)
+[node name="Skeleton3D" parent="HunterG4" index="1"]
+bones/0/position = Vector3(0.00448892, 1.00268, 0.00765216)
+bones/0/rotation = Quaternion(0.0455558, -0.428954, 0.0537203, 0.900576)
+bones/2/rotation = Quaternion(0.0423284, 0.0268925, -0.0161113, 0.998612)
+bones/3/rotation = Quaternion(0.0193195, 0.0513639, -0.0319552, 0.997982)
+bones/4/rotation = Quaternion(-0.0838448, 0.0543804, -0.0265116, 0.994641)
+bones/5/rotation = Quaternion(0.093616, 0.0968767, -0.0257456, 0.99055)
+bones/6/rotation = Quaternion(-0.0297693, 0.191067, -0.0289079, 0.9807)
+bones/9/rotation = Quaternion(-0.600894, -0.382076, 0.513602, -0.478704)
+bones/10/rotation = Quaternion(0.33528, -0.0491143, -0.0812938, 0.937319)
+bones/11/rotation = Quaternion(0.106543, -0.141689, 0.234995, 0.955694)
+bones/12/rotation = Quaternion(-0.0540827, 0.0836145, -0.067471, 0.992739)
+bones/13/rotation = Quaternion(0.074915, 0.287322, 0.283557, 0.911827)
+bones/14/rotation = Quaternion(0.0715211, -0.0983634, -0.00216007, 0.992575)
+bones/16/rotation = Quaternion(0.069825, 0.00526141, 0.123515, 0.989869)
+bones/17/rotation = Quaternion(0.0595527, 0.00143399, 0.00723983, 0.998198)
+bones/18/rotation = Quaternion(0.0852617, 0.0010239, 0.00646343, 0.996337)
+bones/19/rotation = Quaternion(0.145925, 0.0194025, 0.0449239, 0.988085)
+bones/20/rotation = Quaternion(0.129795, 0.0060738, 0.0158437, 0.991396)
+bones/21/rotation = Quaternion(0.160541, 0.0075981, 0.0197811, 0.986802)
+bones/22/rotation = Quaternion(0.245645, 0.0270756, 0.0180037, 0.968814)
+bones/23/rotation = Quaternion(0.186216, -0.00433024, 0.0201464, 0.982293)
+bones/24/rotation = Quaternion(0.212388, -0.00511253, 0.0192513, 0.976982)
+bones/25/rotation = Quaternion(0.36014, 0.0265627, 0.0554119, 0.930872)
+bones/26/rotation = Quaternion(0.177921, -0.006379, 0.0169208, 0.983879)
+bones/27/rotation = Quaternion(0.328651, -0.0193161, 0.022643, 0.943982)
+bones/28/rotation = Quaternion(0.611354, -0.353775, 0.439842, 0.554642)
+bones/29/rotation = Quaternion(0.370996, 0.0672451, 0.409603, 0.830702)
+bones/30/rotation = Quaternion(0.105098, 0.0519912, -0.490655, 0.863429)
+bones/31/rotation = Quaternion(0.131633, -0.0962209, -0.152664, 0.974735)
+bones/47/rotation = Quaternion(0.391534, 0.374011, 0.825933, -0.15701)
+bones/49/rotation = Quaternion(-0.353021, 0.166208, -0.0476354, 0.919501)
+bones/50/rotation = Quaternion(0.488815, -0.0498597, -0.0636056, 0.868636)
+bones/51/rotation = Quaternion(0.273319, 0.0212142, -0.0489524, 0.960443)
+bones/52/rotation = Quaternion(-0.0733003, 0.278792, 0.936855, 0.198004)
+bones/54/rotation = Quaternion(-0.428265, -0.0382112, -0.0285543, 0.902393)
+bones/55/rotation = Quaternion(0.653427, 0.0619162, 0.181415, 0.732317)
+bones/56/rotation = Quaternion(0.27237, 0.00652032, 0.0278504, 0.961768)
 
-[node name="Bone-Cape" parent="HunterGodot/Skeleton3D" index="6"]
-transform = Transform3D(0.609198, -0.783099, 0.12503, 0.0340919, -0.131655, -0.990709, 0.792285, 0.6078, -0.0535069, 1.33925, 93.6048, -0.179715)
+[node name="BoneAttachment3D" parent="HunterG4/Skeleton3D" index="0"]
+transform = Transform3D(-0.0723809, -0.603059, 0.794406, 0.667137, -0.621356, -0.410907, 0.74141, 0.500236, 0.447297, -0.47206, 0.893388, -0.163265)
 
-[node name="SoftBody" parent="HunterGodot/Skeleton3D/Bone-Cape" index="0"]
-attachments/0/offset = Vector3(-7.87978, -4.0123, 3.54049)
-attachments/1/offset = Vector3(-5.44312, -3.84821, 3.64564)
-attachments/2/offset = Vector3(-3.00646, -3.68412, 3.75079)
-attachments/3/offset = Vector3(-0.569792, -3.52003, 3.85594)
-attachments/4/offset = Vector3(1.86687, -3.35593, 3.96109)
-attachments/5/offset = Vector3(6.7402, -3.02775, 4.1714)
-attachments/6/offset = Vector3(4.30354, -3.19184, 4.06625)
-attachments/7/offset = Vector3(9.17686, -2.86365, 4.27655)
-attachments/8/offset = Vector3(6.81558, -5.32388, 6.00791)
-attachments/9/offset = Vector3(4.37891, -5.48797, 5.90276)
-attachments/10/offset = Vector3(1.94225, -5.65206, 5.79761)
-attachments/11/offset = Vector3(-0.494415, -5.81615, 5.69246)
-attachments/12/offset = Vector3(-2.93108, -5.98025, 5.58731)
-attachments/13/offset = Vector3(-5.36774, -6.14434, 5.48216)
-attachments/14/offset = Vector3(-10.3164, -4.1764, 3.43534)
-attachments/15/offset = Vector3(11.6135, -2.69956, 4.3817)
+[node name="AnimationTree" parent="HunterG4" index="2"]
+parameters/playback = SubResource("AnimationNodeStateMachinePlayback_lqpck")
 
-[node name="Bone-Hand" parent="HunterGodot/Skeleton3D" index="7"]
-transform = Transform3D(-0.131938, -0.50491, 0.853028, 0.641025, -0.699857, -0.3151, 0.756095, 0.505238, 0.415999, -43.1741, 82.7582, -9.47696)
-
-[node name="Ax_GodotHunter2" parent="HunterGodot/Skeleton3D/Bone-Hand/AxHandle" index="0"]
-surface_material_override/0 = null
-
-[node name="AnimationTree" parent="HunterGodot" index="2"]
-parameters/playback = SubResource("AnimationNodeStateMachinePlayback_wah1s")
-
-[node name="Camera3D" parent="HunterGodot/Camroot/h/v" index="0"]
-effects = SubResource("CameraEffects_rgh32")
-far = 300.0
+[node name="AnimationPlayer" parent="HunterG4" index="3"]
+blend_times = [&"Roll", &"Roll", 0.2]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_jd42k")
+camera_effects = SubResource("CameraEffects_avrxj")
 
 [node name="DirectionalLight" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.826721, -0.06791, -0.558498, 0.0869323, 0.996186, 0.00755195, 0.555855, -0.0547949, 0.829471, -5.94147, 4.66911, 12.5543)
+transform = Transform3D(0.853191, -0.0827257, -0.514996, 0.253368, 0.928763, 0.270562, 0.455927, -0.361325, 0.813373, -5.94147, 4.66911, 12.5543)
 light_color = Color(0.827451, 0.427451, 0.231373, 1)
 light_energy = 2.909
 light_indirect_energy = 1.519
 shadow_enabled = true
 shadow_bias = 2.308
 
-[node name="Pilars" type="Node3D" parent="."]
+[node name="Pilars And Floor" type="Node3D" parent="."]
 
-[node name="CSGCombiner3D" type="CSGCombiner3D" parent="Pilars"]
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="Pilars And Floor"]
 use_collision = true
 
-[node name="LoPilar" type="CSGMesh3D" parent="Pilars/CSGCombiner3D"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 3.5201, 1.72299, 11.0674)
+[node name="LoPilar" type="CSGMesh3D" parent="Pilars And Floor/CSGCombiner3D"]
+transform = Transform3D(4, 0, 0, 0, 3.5, 0, 0, 0, 4, 0.845225, 3.39317, 12.9808)
 mesh = SubResource("3")
 
-[node name="LoPilar2" type="CSGMesh3D" parent="Pilars/CSGCombiner3D"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -2.85815, 1.72299, 11.0674)
-mesh = SubResource("3")
-
-[node name="MidPilar" type="CSGMesh3D" parent="Pilars/CSGCombiner3D"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 3.6283, 2.22217, 6.70886)
+[node name="MidPilar" type="CSGMesh3D" parent="Pilars And Floor/CSGCombiner3D"]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 3.6283, 2.22217, 7.50491)
 mesh = SubResource("10")
 
-[node name="MidPilar2" type="MeshInstance3D" parent="Pilars/CSGCombiner3D"]
-transform = Transform3D(-5.71027e-08, 1.30636, -0.737177, -1.5, -6.55671e-08, 3.19744e-14, -3.2223e-08, 0.737177, 1.30636, -2.79767, 1.29646, 5.73347)
+[node name="MidPilar2" type="MeshInstance3D" parent="Pilars And Floor/CSGCombiner3D"]
+transform = Transform3D(-6.52741e-08, 1.4933, -0.141631, -1.5, -6.55671e-08, 3.31847e-14, -6.19091e-09, 0.141631, 1.4933, -1.93198, 0.644425, 6.68668)
 mesh = SubResource("10")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Pilars/CSGCombiner3D/MidPilar2"]
+[node name="StaticBody3D" type="StaticBody3D" parent="Pilars And Floor/CSGCombiner3D/MidPilar2"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Pilars/CSGCombiner3D/MidPilar2/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Pilars And Floor/CSGCombiner3D/MidPilar2/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_gyltu")
 
-[node name="HiPilar" type="CSGMesh3D" parent="Pilars/CSGCombiner3D"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 3.64355, 2.22217, 2.91001)
+[node name="HiPilar" type="CSGMesh3D" parent="Pilars And Floor/CSGCombiner3D"]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 3.83263, 3.13039, 2.91001)
 mesh = SubResource("15")
 
-[node name="HiPilar2" type="MeshInstance3D" parent="Pilars/CSGCombiner3D"]
-transform = Transform3D(1.36442, 0.0556336, -0.620694, -0.55702, 0.778792, -1.15465, 0.279436, 1.28078, 0.729059, -2.76321, 2.38572, 5.60854)
+[node name="HiPilar2" type="MeshInstance3D" parent="Pilars And Floor/CSGCombiner3D"]
+transform = Transform3D(1.31336, 0.62416, -0.368122, -0.600999, 0.512534, -1.27519, -0.40483, 1.26402, 0.69884, -1.40547, 1.55654, 5.84204)
 mesh = SubResource("15")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Pilars/CSGCombiner3D/HiPilar2"]
+[node name="StaticBody3D" type="StaticBody3D" parent="Pilars And Floor/CSGCombiner3D/HiPilar2"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Pilars/CSGCombiner3D/HiPilar2/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Pilars And Floor/CSGCombiner3D/HiPilar2/StaticBody3D"]
+transform = Transform3D(1, 0, 2.23517e-08, 0, 1, 0, 3.72529e-08, -2.98023e-08, 1, 0, 0, 0)
 shape = SubResource("ConcavePolygonShape3D_t2hng")
 
-[node name="LoPilar3" type="CSGMesh3D" parent="Pilars/CSGCombiner3D"]
-transform = Transform3D(-1.5, 0, -2.26494e-07, 0, 1.5, 0, 2.26494e-07, 0, -1.5, -2.73471, 1.72299, -11.5207)
+[node name="LoPilar3" type="CSGMesh3D" parent="Pilars And Floor/CSGCombiner3D"]
+transform = Transform3D(-1.5, 0, -2.26494e-07, 0, 1.5, 0, 2.26494e-07, 0, -1.5, -2.73471, 1.40161, -11.5207)
 mesh = SubResource("3")
 
-[node name="LoPilar4" type="CSGMesh3D" parent="Pilars/CSGCombiner3D"]
-transform = Transform3D(-1.5, 0, -2.26494e-07, 0, 1.5, 0, 2.26494e-07, 0, -1.5, 3.64355, 1.72299, -11.5207)
+[node name="LoPilar4" type="CSGMesh3D" parent="Pilars And Floor/CSGCombiner3D"]
+transform = Transform3D(-1.5, 0, -2.26494e-07, 0, 1.5, 0, 2.26494e-07, 0, -1.5, 3.64355, 1.40161, -11.5207)
 mesh = SubResource("3")
 
-[node name="MidPilar3" type="CSGMesh3D" parent="Pilars/CSGCombiner3D"]
+[node name="MidPilar3" type="CSGMesh3D" parent="Pilars And Floor/CSGCombiner3D"]
 transform = Transform3D(-1.5, 0, -2.26494e-07, 0, 1.5, 0, 2.26494e-07, 0, -1.5, -2.8429, 2.22217, -7.16215)
 mesh = SubResource("10")
 
-[node name="MidPilar4" type="CSGMesh3D" parent="Pilars/CSGCombiner3D"]
+[node name="MidPilar4" type="CSGMesh3D" parent="Pilars And Floor/CSGCombiner3D"]
 transform = Transform3D(-1.5, 0, -2.26494e-07, 0, 1.5, 0, 2.26494e-07, 0, -1.5, 3.58307, 2.22217, -7.16215)
 mesh = SubResource("10")
 
-[node name="LoPilar5" type="CSGMesh3D" parent="Pilars/CSGCombiner3D"]
-transform = Transform3D(-6.55671e-08, 0, -1.5, 0, 1.5, 0, 1.5, 0, -6.55671e-08, -11.0316, 1.72299, 2.77872)
+[node name="LoPilar5" type="CSGMesh3D" parent="Pilars And Floor/CSGCombiner3D"]
+transform = Transform3D(-6.55671e-08, 0, -1.5, 0, 1.5, 0, 1.5, 0, -6.55671e-08, -11.0316, 1.40161, 2.77872)
 mesh = SubResource("3")
 
-[node name="LoPilar6" type="CSGMesh3D" parent="Pilars/CSGCombiner3D"]
-transform = Transform3D(-6.55671e-08, 0, -1.5, 0, 1.5, 0, 1.5, 0, -6.55671e-08, -11.0316, 1.72299, -3.59953)
+[node name="LoPilar6" type="CSGMesh3D" parent="Pilars And Floor/CSGCombiner3D"]
+transform = Transform3D(-6.55671e-08, 0, -1.5, 0, 1.5, 0, 1.5, 0, -6.55671e-08, -11.0316, 1.40161, -3.59953)
 mesh = SubResource("3")
 
-[node name="MidPilar5" type="CSGMesh3D" parent="Pilars/CSGCombiner3D"]
+[node name="MidPilar5" type="CSGMesh3D" parent="Pilars And Floor/CSGCombiner3D"]
 transform = Transform3D(-6.55671e-08, 0, -1.5, 0, 1.5, 0, 1.5, 0, -6.55671e-08, -6.67308, 2.22217, 2.88692)
 mesh = SubResource("10")
 
-[node name="MidPilar6" type="CSGMesh3D" parent="Pilars/CSGCombiner3D"]
+[node name="MidPilar6" type="CSGMesh3D" parent="Pilars And Floor/CSGCombiner3D"]
 transform = Transform3D(-6.55671e-08, 0, -1.5, 0, 1.5, 0, 1.5, 0, -6.55671e-08, -6.67308, 2.22217, -3.53905)
 mesh = SubResource("10")
 
-[node name="LoPilar7" type="CSGMesh3D" parent="Pilars/CSGCombiner3D"]
-transform = Transform3D(-6.55671e-08, 0, 1.5, 0, 1.5, 0, -1.5, 0, -6.55671e-08, 11.9221, 1.72299, -3.47609)
+[node name="LoPilar7" type="CSGMesh3D" parent="Pilars And Floor/CSGCombiner3D"]
+transform = Transform3D(-6.55671e-08, 0, 1.5, 0, 1.5, 0, -1.5, 0, -6.55671e-08, 11.9221, 1.40161, -3.47609)
 mesh = SubResource("3")
 
-[node name="LoPilar8" type="CSGMesh3D" parent="Pilars/CSGCombiner3D"]
-transform = Transform3D(-6.55671e-08, 0, 1.5, 0, 1.5, 0, -1.5, 0, -6.55671e-08, 11.9221, 1.72299, 2.90217)
+[node name="LoPilar8" type="CSGMesh3D" parent="Pilars And Floor/CSGCombiner3D"]
+transform = Transform3D(-6.55671e-08, 0, 1.5, 0, 1.5, 0, -1.5, 0, -6.55671e-08, 11.9221, 1.40161, 2.90217)
 mesh = SubResource("3")
 
-[node name="MidPilar7" type="MeshInstance3D" parent="Pilars/CSGCombiner3D"]
-transform = Transform3D(-9.21809e-08, -1.16925, 0.9396, 1.5, -6.55671e-08, 6.55671e-08, -1.00385e-08, 0.9396, 1.16925, 7.56361, 1.18263, -2.09358)
+[node name="MidPilar7" type="MeshInstance3D" parent="Pilars And Floor/CSGCombiner3D"]
+transform = Transform3D(-9.21809e-08, -1.16925, 0.9396, 1.5, -6.55671e-08, 6.55671e-08, -1.00385e-08, 0.9396, 1.16925, 7.56361, 0.774648, 3.63999)
 mesh = SubResource("10")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Pilars/CSGCombiner3D/MidPilar7"]
+[node name="StaticBody3D" type="StaticBody3D" parent="Pilars And Floor/CSGCombiner3D/MidPilar7"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Pilars/CSGCombiner3D/MidPilar7/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Pilars And Floor/CSGCombiner3D/MidPilar7/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_1l8u4")
 
-[node name="MidPilar8" type="MeshInstance3D" parent="Pilars/CSGCombiner3D"]
-transform = Transform3D(-3.12925e-08, 0.640493, 1.35638, 1.5, -6.55671e-08, 6.55671e-08, 8.72861e-08, 1.35638, -0.640493, 7.56361, 1.20636, 2.84169)
+[node name="MidPilar8" type="MeshInstance3D" parent="Pilars And Floor/CSGCombiner3D"]
+transform = Transform3D(-3.12925e-08, 0.640493, 1.35638, 1.5, -6.55671e-08, 6.55671e-08, 8.72861e-08, 1.35638, -0.640493, 7.56361, 0.798378, 2.84169)
 mesh = SubResource("10")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Pilars/CSGCombiner3D/MidPilar8"]
+[node name="StaticBody3D" type="StaticBody3D" parent="Pilars And Floor/CSGCombiner3D/MidPilar8"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Pilars/CSGCombiner3D/MidPilar8/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Pilars And Floor/CSGCombiner3D/MidPilar8/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_t1rws")
 
-[node name="HiPilar3" type="MeshInstance3D" parent="Pilars/CSGCombiner3D"]
-transform = Transform3D(1.03117, 1.00878, -0.411146, 0.555544, -2.42836e-08, 1.39333, 0.937046, -1.11012, -0.373616, -2.85815, 1.16387, -3.3633)
+[node name="HiPilar3" type="MeshInstance3D" parent="Pilars And Floor/CSGCombiner3D"]
+transform = Transform3D(0.998196, 1.04651, -0.397999, 0.555544, -5.73678e-08, 1.39333, 0.972097, -1.07462, -0.387591, -2.92516, 0.70246, -3.3633)
 mesh = SubResource("15")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Pilars/CSGCombiner3D/HiPilar3"]
+[node name="StaticBody3D" type="StaticBody3D" parent="Pilars And Floor/CSGCombiner3D/HiPilar3"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Pilars/CSGCombiner3D/HiPilar3/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Pilars And Floor/CSGCombiner3D/HiPilar3/StaticBody3D"]
+transform = Transform3D(1, -2.98023e-08, 2.98023e-08, -5.96046e-08, 1, 0, 1.19209e-07, -5.96046e-08, 1, 0, 0, 0)
 shape = SubResource("ConcavePolygonShape3D_65o51")
 
-[node name="HiPilar4" type="CSGMesh3D" parent="Pilars/CSGCombiner3D"]
-transform = Transform3D(-1.5, 0, -2.26494e-07, 0, 1.5, 0, 2.26494e-07, 0, -1.5, 3.54861, 2.22217, -3.3633)
+[node name="HiPilar4" type="CSGMesh3D" parent="Pilars And Floor/CSGCombiner3D"]
+transform = Transform3D(-1.5, 0, -2.26494e-07, 0, 1.5, 0, 2.26494e-07, 0, -1.5, 3.54861, 3.42662, -3.3633)
 mesh = SubResource("15")
 
-[node name="Wall" type="CSGMesh3D" parent="Pilars/CSGCombiner3D"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 7.14111, 2.22217, 13.1432)
+[node name="Wall" type="CSGMesh3D" parent="Pilars And Floor/CSGCombiner3D"]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 8.67992, 2.29353, 12.5756)
 mesh = SubResource("82")
 
-[node name="Wall5" type="CSGMesh3D" parent="Pilars/CSGCombiner3D"]
-transform = Transform3D(1.44194, -9.4587e-09, 0.41328, -0.41328, -6.73319e-08, 1.44194, 9.4587e-09, -1.5, -6.73319e-08, -12.0999, 2.63892, 12.0046)
+[node name="Wall5" type="CSGMesh3D" parent="Pilars And Floor/CSGCombiner3D"]
+transform = Transform3D(1.4197, -1.2782e-08, 0.484192, -0.484192, -6.67808e-08, 1.4197, 9.4587e-09, -1.5, -6.73319e-08, -12.0999, 3.42571, 12.0046)
 mesh = SubResource("82")
 
-[node name="Wall2" type="CSGMesh3D" parent="Pilars/CSGCombiner3D"]
+[node name="Wall2" type="CSGMesh3D" parent="Pilars And Floor/CSGCombiner3D"]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -9.03152, 2.22217, -15.748)
 mesh = SubResource("82")
 
-[node name="Wall3" type="CSGMesh3D" parent="Pilars/CSGCombiner3D"]
-transform = Transform3D(-6.55671e-08, 0, 1.5, 0, 1.5, 0, -1.5, 0, -6.55671e-08, 14.0589, 2.22217, -6.6766)
+[node name="Wall3" type="CSGMesh3D" parent="Pilars And Floor/CSGCombiner3D"]
+transform = Transform3D(-4.37114e-08, 0, 4, 0, 1.5, 0, -1, 0, -1.74846e-07, 15.0499, 2.22217, 3.82344)
 mesh = SubResource("82")
 
-[node name="Wall4" type="CSGMesh3D" parent="Pilars/CSGCombiner3D"]
+[node name="Wall4" type="CSGMesh3D" parent="Pilars And Floor/CSGCombiner3D"]
 transform = Transform3D(-6.55671e-08, 0, 1.5, 0, 1.5, 0, -1.5, 0, -6.55671e-08, -18.0822, 2.22217, 10.0673)
 mesh = SubResource("82")
 
-[node name="MeshInstanceFloor" type="MeshInstance3D" parent="."]
+[node name="Hole" type="CSGBox3D" parent="Pilars And Floor/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.825, 5.78407, 12.846)
+operation = 2
+size = Vector3(1, 2.366, 5.122)
+material = ExtResource("3")
+
+[node name="Hole2" type="CSGBox3D" parent="Pilars And Floor/CSGCombiner3D"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.825, 5.78407, 12.846)
+operation = 2
+size = Vector3(1, 2.366, 5.122)
+material = ExtResource("3")
+
+[node name="Cave" type="CSGCylinder3D" parent="Pilars And Floor/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1.7, 0, 1, -7.43094e-08, 14.9318, 1.21304, 3.74965)
+operation = 2
+radius = 1.26505
+height = 13.3813
+sides = 14
+material = ExtResource("3")
+
+[node name="MeshInstanceFloor" type="MeshInstance3D" parent="Pilars And Floor"]
 transform = Transform3D(25, 0, 0, 0, 1, 0, 0, 0, 25, 0, -0.496773, 0)
 mesh = SubResource("1")
+skeleton = NodePath("../..")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstanceFloor"]
+[node name="StaticBody3D" type="StaticBody3D" parent="Pilars And Floor/MeshInstanceFloor"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstanceFloor/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Pilars And Floor/MeshInstanceFloor/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_mxx5b")
 
-[editable path="HunterGodot"]
+[editable path="HunterG4"]

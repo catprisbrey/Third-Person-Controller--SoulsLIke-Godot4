@@ -1,0 +1,14 @@
+[gd_resource type="StandardMaterial3D" load_steps=5 format=3 uid="uid://bw11msiaigqy8"]
+
+[ext_resource type="Texture2D" uid="uid://dg7bp1v44bnsc" path="res://mat/HunterG4_albedo.png" id="1_0o8b2"]
+[ext_resource type="Texture2D" uid="uid://da5id2h2uk8la" path="res://mat/HunterG4_metalic.png" id="2_vuanh"]
+[ext_resource type="Texture2D" uid="uid://csmka18t8udxt" path="res://mat/HunterG4_normal.png" id="3_w2ctm"]
+[ext_resource type="Texture2D" uid="uid://cbv3y4iwwgtec" path="res://mat/HunterG4_roughness.png" id="4_an2df"]
+
+[resource]
+albedo_texture = ExtResource("1_0o8b2")
+metallic = 1.0
+metallic_texture = ExtResource("2_vuanh")
+roughness_texture = ExtResource("4_an2df")
+normal_enabled = true
+normal_texture = ExtResource("3_w2ctm")

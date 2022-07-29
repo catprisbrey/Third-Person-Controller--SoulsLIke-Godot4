@@ -1,9 +1,9 @@
 extends CharacterBody3D
 
-# Allows to pick your animation tree from the inspector
-@export_node_path(NodePath) var PlayerAnimationTree: NodePath
+# Grabs the prebuilt AnimationTree 
+@onready var PlayerAnimationTree = $AnimationTree.get_path()
 @onready var animation_tree = get_node(PlayerAnimationTree)
-@onready var playback = animation_tree.get("parameters/playback");
+@onready var playback = animation_tree.get("parameters/playback")
 
 # Allows to pick your chracter's mesh from the inspector
 @export_node_path(Node3D) var PlayerCharacterMesh: NodePath
@@ -53,13 +53,20 @@ func _input(event): # All major mouse and button input events
 	if event.is_action_pressed("aim"): # Aim button triggers a strafe walk and camera mechanic
 		direction = $Camroot/h.global_transform.basis.z
 
-func roll():
+func sprint_and_roll():
 ## Dodge button input with dash and interruption to basic actions
-	if Input.is_action_just_pressed("roll"):
+	if Input.is_action_just_pressed("sprint"):
 		if !roll_node_name in playback.get_current_node() and !jump_node_name in playback.get_current_node() and !bigattack_node_name in playback.get_current_node():
-			playback.start(roll_node_name) #"start" not "travel" to speedy teleport to the roll!
-			horizontal_velocity = direction * dash_power
-			
+			$DashTimer.start()
+		
+	if Input.is_action_just_released("sprint") and !$DashTimer.is_stopped():
+		$DashTimer.stop()
+		playback.start(roll_node_name) #"start" not "travel" to speedy teleport to the roll!
+		horizontal_velocity = direction * dash_power
+		is_rolling = true
+		
+
+		
 func attack1(): # If not doing other things, start attack1
 	if (idle_node_name in playback.get_current_node() or walk_node_name in playback.get_current_node()) and is_on_floor():
 		if Input.is_action_just_pressed("attack"):
@@ -93,7 +100,7 @@ func _physics_process(delta):
 	attack1()
 	attack2()
 	attack3()
-	roll()
+	sprint_and_roll()
 	
 	var on_floor = is_on_floor() # State control for is jumping/falling/landing
 	var h_rot = $Camroot/h.global_transform.basis.get_euler().y
@@ -106,7 +113,8 @@ func _physics_process(delta):
 	if not is_on_floor(): 
 		vertical_velocity += Vector3.DOWN * gravity * 2 * delta
 	else: 
-		vertical_velocity = -get_floor_normal() * gravity / 3
+		#vertical_velocity = -get_floor_normal() * gravity / 3
+		vertical_velocity = Vector3.DOWN * gravity / 10
 	
 	# Defining attack state: Add more attacks animations here as you add more!
 	if (attack1_node_name in playback.get_current_node()) or (attack2_node_name in playback.get_current_node()) or (rollattack_node_name in playback.get_current_node()) or (bigattack_node_name in playback.get_current_node()): 
@@ -138,8 +146,8 @@ func _physics_process(delta):
 		direction = direction.rotated(Vector3.UP, h_rot).normalized()
 		is_walking = true
 		
-	# Sprint input, state and speed
-		if (Input.is_action_pressed("sprint")) and (is_walking == true): 
+	# Sprint input, dash state and movement speed
+		if Input.is_action_pressed("sprint") and $DashTimer.is_stopped() and (is_walking == true ):
 			movement_speed = run_speed
 			is_running = true
 		else: # Walk State and speed
@@ -148,7 +156,7 @@ func _physics_process(delta):
 	else: 
 		is_walking = false
 		is_running = false
-		
+	
 	if Input.is_action_pressed("aim"):  # Aim/Strafe input and  mechanics
 		player_mesh.rotation.y = lerp_angle(player_mesh.rotation.y, $Camroot/h.rotation.y, delta * angular_acceleration)
 

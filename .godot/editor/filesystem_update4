@@ -1,5 +1,5 @@
 res://World.tscn
-res://scripts/PlayerTemplate.gd
-res://mat/HunterGodot.material
 res://mat/CobleStones.material
+res://mat/HunterG4.tres
 res://mat/Pilars.material
+res://player/HunterGodot.tscn
