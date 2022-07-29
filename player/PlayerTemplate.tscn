@@ -166,15 +166,15 @@ parameters/conditions/IsWalking = false
 wait_time = 0.1
 one_shot = true
 
-[node name="Camroot" type="Node3D" parent="DashTimer"]
+[node name="Camroot" type="Node3D" parent="."]
 script = ExtResource("2_6p7mb")
 
-[node name="h" type="Node3D" parent="DashTimer/Camroot"]
+[node name="h" type="Node3D" parent="Camroot"]
 
-[node name="v" type="SpringArm3D" parent="DashTimer/Camroot/h"]
+[node name="v" type="SpringArm3D" parent="Camroot/h"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 spring_length = -3.0
 
-[node name="Camera3D" type="Camera3D" parent="DashTimer/Camroot/h/v"]
+[node name="Camera3D" type="Camera3D" parent="Camroot/h/v"]
 transform = Transform3D(-1, 1.45794e-08, -8.61985e-08, 0, 0.985996, 0.166769, 8.74228e-08, 0.166769, -0.985996, 0, 0, 0)
 keep_aspect = 0
