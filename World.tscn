@@ -1,10 +1,8 @@
-[gd_scene load_steps=20 format=3 uid="uid://crstna6wto6j3"]
+[gd_scene load_steps=19 format=3 uid="uid://crstna6wto6j3"]
 
 [ext_resource type="PackedScene" uid="uid://drnwjy53eh3vi" path="res://player/HunterGodot.tscn" id="1"]
 [ext_resource type="Material" uid="uid://bch8jjmrr4qnw" path="res://mat/CobleStones.material" id="2"]
 [ext_resource type="Material" uid="uid://dy7lsy567vx3j" path="res://mat/Pilars.material" id="3"]
-
-[sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_lqpck"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_hulul"]
 sky_top_color = Color(0.286275, 0.25098, 0.262745, 1)
@@ -94,63 +92,12 @@ data = PackedVector3Array(-0.75, 0.5, 0.75, 0.75, 0.5, 0.75, -0.75, -0.5, 0.75, 
 
 [node name="World" type="Node3D"]
 
-[node name="HunterG4" parent="." instance=ExtResource("1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.08575, 0, -10.7214)
-
-[node name="Skeleton3D" parent="HunterG4" index="1"]
-bones/0/position = Vector3(0.00448892, 1.00268, 0.00765216)
-bones/0/rotation = Quaternion(0.0455558, -0.428954, 0.0537203, 0.900576)
-bones/2/rotation = Quaternion(0.0423284, 0.0268925, -0.0161113, 0.998612)
-bones/3/rotation = Quaternion(0.0193195, 0.0513639, -0.0319552, 0.997982)
-bones/4/rotation = Quaternion(-0.0838448, 0.0543804, -0.0265116, 0.994641)
-bones/5/rotation = Quaternion(0.093616, 0.0968767, -0.0257456, 0.99055)
-bones/6/rotation = Quaternion(-0.0297693, 0.191067, -0.0289079, 0.9807)
-bones/9/rotation = Quaternion(-0.600894, -0.382076, 0.513602, -0.478704)
-bones/10/rotation = Quaternion(0.33528, -0.0491143, -0.0812938, 0.937319)
-bones/11/rotation = Quaternion(0.106543, -0.141689, 0.234995, 0.955694)
-bones/12/rotation = Quaternion(-0.0540827, 0.0836145, -0.067471, 0.992739)
-bones/13/rotation = Quaternion(0.074915, 0.287322, 0.283557, 0.911827)
-bones/14/rotation = Quaternion(0.0715211, -0.0983634, -0.00216007, 0.992575)
-bones/16/rotation = Quaternion(0.069825, 0.00526141, 0.123515, 0.989869)
-bones/17/rotation = Quaternion(0.0595527, 0.00143399, 0.00723983, 0.998198)
-bones/18/rotation = Quaternion(0.0852617, 0.0010239, 0.00646343, 0.996337)
-bones/19/rotation = Quaternion(0.145925, 0.0194025, 0.0449239, 0.988085)
-bones/20/rotation = Quaternion(0.129795, 0.0060738, 0.0158437, 0.991396)
-bones/21/rotation = Quaternion(0.160541, 0.0075981, 0.0197811, 0.986802)
-bones/22/rotation = Quaternion(0.245645, 0.0270756, 0.0180037, 0.968814)
-bones/23/rotation = Quaternion(0.186216, -0.00433024, 0.0201464, 0.982293)
-bones/24/rotation = Quaternion(0.212388, -0.00511253, 0.0192513, 0.976982)
-bones/25/rotation = Quaternion(0.36014, 0.0265627, 0.0554119, 0.930872)
-bones/26/rotation = Quaternion(0.177921, -0.006379, 0.0169208, 0.983879)
-bones/27/rotation = Quaternion(0.328651, -0.0193161, 0.022643, 0.943982)
-bones/28/rotation = Quaternion(0.611354, -0.353775, 0.439842, 0.554642)
-bones/29/rotation = Quaternion(0.370996, 0.0672451, 0.409603, 0.830702)
-bones/30/rotation = Quaternion(0.105098, 0.0519912, -0.490655, 0.863429)
-bones/31/rotation = Quaternion(0.131633, -0.0962209, -0.152664, 0.974735)
-bones/47/rotation = Quaternion(0.391534, 0.374011, 0.825933, -0.15701)
-bones/49/rotation = Quaternion(-0.353021, 0.166208, -0.0476354, 0.919501)
-bones/50/rotation = Quaternion(0.488815, -0.0498597, -0.0636056, 0.868636)
-bones/51/rotation = Quaternion(0.273319, 0.0212142, -0.0489524, 0.960443)
-bones/52/rotation = Quaternion(-0.0733003, 0.278792, 0.936855, 0.198004)
-bones/54/rotation = Quaternion(-0.428265, -0.0382112, -0.0285543, 0.902393)
-bones/55/rotation = Quaternion(0.653427, 0.0619162, 0.181415, 0.732317)
-bones/56/rotation = Quaternion(0.27237, 0.00652032, 0.0278504, 0.961768)
-
-[node name="BoneAttachment3D" parent="HunterG4/Skeleton3D" index="0"]
-transform = Transform3D(-0.0723809, -0.603059, 0.794406, 0.667137, -0.621356, -0.410907, 0.74141, 0.500236, 0.447297, -0.47206, 0.893388, -0.163265)
-
-[node name="AnimationTree" parent="HunterG4" index="2"]
-parameters/playback = SubResource("AnimationNodeStateMachinePlayback_lqpck")
-
-[node name="AnimationPlayer" parent="HunterG4" index="3"]
-blend_times = [&"Roll", &"Roll", 0.2]
-
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_jd42k")
 camera_effects = SubResource("CameraEffects_avrxj")
 
 [node name="DirectionalLight" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.853191, -0.0827257, -0.514996, 0.253368, 0.928763, 0.270562, 0.455927, -0.361325, 0.813373, -5.94147, 4.66911, 12.5543)
+transform = Transform3D(0.853191, -0.0827259, -0.514996, 0.253368, 0.928763, 0.270562, 0.455927, -0.361325, 0.813372, -5.94147, 4.66911, 12.5543)
 light_color = Color(0.827451, 0.427451, 0.231373, 1)
 light_energy = 2.909
 light_indirect_energy = 1.519
@@ -234,21 +181,23 @@ transform = Transform3D(-6.55671e-08, 0, 1.5, 0, 1.5, 0, -1.5, 0, -6.55671e-08, 
 mesh = SubResource("3")
 
 [node name="MidPilar7" type="MeshInstance3D" parent="Pilars And Floor/CSGCombiner3D"]
-transform = Transform3D(-9.21809e-08, -1.16925, 0.9396, 1.5, -6.55671e-08, 6.55671e-08, -1.00385e-08, 0.9396, 1.16925, 7.56361, 0.774648, 3.63999)
+transform = Transform3D(-5.81074e-08, 0.161897, 1.49124, 1.5, -6.55671e-08, 6.55671e-08, 7.22607e-08, 1.49124, -0.161897, 8.54406, 0.774648, 0.276984)
 mesh = SubResource("10")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Pilars And Floor/CSGCombiner3D/MidPilar7"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Pilars And Floor/CSGCombiner3D/MidPilar7/StaticBody3D"]
+transform = Transform3D(1, 7.10543e-15, -3.55271e-15, 0, 1, 2.98023e-08, 0, -2.98023e-08, 1, 0, 0, 0)
 shape = SubResource("ConcavePolygonShape3D_1l8u4")
 
 [node name="MidPilar8" type="MeshInstance3D" parent="Pilars And Floor/CSGCombiner3D"]
-transform = Transform3D(-3.12925e-08, 0.640493, 1.35638, 1.5, -6.55671e-08, 6.55671e-08, 8.72861e-08, 1.35638, -0.640493, 7.56361, 0.798378, 2.84169)
+transform = Transform3D(-0.750657, 1.26438, 0.296409, 1.20675, 0.805625, -0.380422, -0.479862, 0.0480832, -1.42036, 7.87145, 1.45442, -0.152988)
 mesh = SubResource("10")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Pilars And Floor/CSGCombiner3D/MidPilar8"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Pilars And Floor/CSGCombiner3D/MidPilar8/StaticBody3D"]
+transform = Transform3D(1, 0, 0, -3.55271e-15, 1, 2.98023e-08, -1.77636e-15, -2.98023e-08, 1, 0, 0, 0)
 shape = SubResource("ConcavePolygonShape3D_t1rws")
 
 [node name="HiPilar3" type="MeshInstance3D" parent="Pilars And Floor/CSGCombiner3D"]
@@ -315,4 +264,4 @@ skeleton = NodePath("../..")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Pilars And Floor/MeshInstanceFloor/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_mxx5b")
 
-[editable path="HunterG4"]
+[node name="HunterG4" parent="." instance=ExtResource("1")]
