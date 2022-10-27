@@ -36,7 +36,7 @@ func _physics_process(delta):
 	# JoyPad Controls
 	_joystick_input()
 		
-	camrot_v = clamp(camrot_v, deg2rad(cam_v_min), deg2rad(cam_v_max))
+	camrot_v = clamp(camrot_v, deg_to_rad(cam_v_min), deg_to_rad(cam_v_max))
 
 	#var mesh_front = player_mesh.global_transform.basis.z
 	#var auto_rotate_speed =  (PI - mesh_front.angle_to($pivot.global_transform.basis.z)) * get_parent().horizontal_velocity.length() * rot_speed_multiplier
@@ -47,6 +47,6 @@ func _physics_process(delta):
 #		camrot_h = $pivot.rotation_degrees.y
 #	else:
 #		#MOUSE CAMERA
-	$h.rotation.y = lerp($h.rotation.y, camrot_h, delta * h_acceleration)
-	$h/v.rotation.x = lerp($h/v.rotation.x, camrot_v, delta * v_acceleration)
+	$h.rotation.y = lerpf($h.rotation.y, camrot_h, delta * h_acceleration)
+	$h/v.rotation.x = lerpf($h/v.rotation.x, camrot_v, delta * v_acceleration)
 	

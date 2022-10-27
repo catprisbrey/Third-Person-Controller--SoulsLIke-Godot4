@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://crstna6wto6j3"]
+[gd_scene load_steps=18 format=3 uid="uid://crstna6wto6j3"]
 
 [ext_resource type="PackedScene" uid="uid://drnwjy53eh3vi" path="res://player/HunterGodot.tscn" id="1"]
 [ext_resource type="Material" uid="uid://bch8jjmrr4qnw" path="res://mat/CobleStones.material" id="2"]
@@ -41,13 +41,6 @@ volumetric_fog_enabled = true
 volumetric_fog_density = 0.01
 volumetric_fog_anisotropy = 0.9
 volumetric_fog_length = 98.14
-
-[sub_resource type="CameraEffects" id="CameraEffects_avrxj"]
-dof_blur_far_enabled = true
-dof_blur_far_distance = 20.68
-dof_blur_far_transition = 8.62
-dof_blur_near_distance = 10.25
-dof_blur_amount = 0.02
 
 [sub_resource type="CylinderMesh" id="3"]
 material = ExtResource("3")
@@ -94,7 +87,6 @@ data = PackedVector3Array(-0.75, 0.5, 0.75, 0.75, 0.5, 0.75, -0.75, -0.5, 0.75, 
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_jd42k")
-camera_effects = SubResource("CameraEffects_avrxj")
 
 [node name="DirectionalLight" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.853191, -0.0827259, -0.514996, 0.253368, 0.928763, 0.270562, 0.455927, -0.361325, 0.813372, -5.94147, 4.66911, 12.5543)
